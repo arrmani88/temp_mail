@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'routes/slash_page.dart';
+import 'routes/routes_holder.dart';
 import 'package:mail/constants/constants.dart';
 
 void main() => runApp(const MyApp());
@@ -30,6 +31,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/slash_page',
       routes: {
         '/slash_page': (context) => SlashPage(),
+        '/routes_holder': (context) => RoutesHolder(title: 'TITLE')
       },
     );
   }

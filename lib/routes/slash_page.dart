@@ -42,7 +42,10 @@ class SlashPage extends StatelessWidget {
                       backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
                       padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 15.0, horizontal: 115.0)),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/routes_holder');
+                    },
                     child: const Text('Get Started', style: TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
                   ),
                 ),
