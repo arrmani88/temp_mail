@@ -29,6 +29,7 @@ flutter:
     - assets/images/usa_icon.png
     - assets/images/france_icon.png
     - assets/images/message_sent.png
+    - assets/images/email.png
 
   fonts:
     - family: poppins

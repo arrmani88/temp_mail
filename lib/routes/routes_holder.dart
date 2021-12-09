@@ -34,99 +34,74 @@ class _RoutesHolderState extends State<RoutesHolder>
   void initState() {
     super.initState();
     currentPage = 0;
-    tabs.add(Tabs(
-      Icons.home,
-      "Home",
-      Colors.deepPurple,
-      getGradient(Colors.deepPurple),
-    ));
+
     tabs.add(
-        Tabs(Icons.search, "Search", Colors.pink, getGradient(Colors.pink)));
+        Tabs(Icons.home, "Home"));
     tabs.add(
-        Tabs(Icons.alarm, "Alarm", Colors.amber, getGradient(Colors.amber)));
-    tabs.add(Tabs(
-        Icons.settings, "Settings", Colors.teal, getGradient(Colors.teal)));
-    tabBarController = new PageController(initialPage: 0);
+        Tabs(Icons.search, "Search"));
+    tabs.add(
+        Tabs(Icons.alarm, "Alarm"));
+    tabs.add(
+        Tabs(Icons.settings, "Settings"));
+
+    tabBarController = PageController(initialPage: 0);
   }
 
   @override
   Widget build(BuildContext context) {
     Widget tabView({required int destinationIndex}) {
       return Container(
-          decoration: BoxDecoration(color: tabs[currentPage].color),
-          child: InkWell(
-              child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        tabs[currentPage].title,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        "Click here to Change the tab To " +
-                            tabs[destinationIndex].title,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white, fontSize: 14.0),
-                      ),
-                    ],
-                  )),
-              onTap: () {
-                setState(() {
-                  currentPage = destinationIndex;
-                  tabBarController.jumpToPage(currentPage);
-                });
-              }));
+        child: InkWell(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(tabs[currentPage].title, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.w700),),
+                const SizedBox(height: 4),
+                const Text("Click here to Change the tab To ", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 14.0),),
+              ],
+            )),
+          onTap: () {
+            setState(() {
+              currentPage = destinationIndex;
+              tabBarController.jumpToPage(currentPage);
+            });
+            }));
     }
 
     return Scaffold(
       body: PageView(
-          controller: tabBarController,
-          physics: NeverScrollableScrollPhysics(),
-          children: <Widget>[
-            tabView(destinationIndex: 3),
-            tabView(destinationIndex: 0),
-            tabView(destinationIndex: 1),
-            tabView(destinationIndex: 2)
-          ]),
-      drawer: new Container(
-          width: 250.0,
-          margin: EdgeInsets.only(bottom: 60.0),
-          color: Colors.blue,
-          child: ListView(
-            children: <Widget>[Text("Hello"), Text("World")],
-          )),
-      endDrawer: new Container(
-          width: 250.0,
-          margin: EdgeInsets.only(bottom: 60.0),
-          color: Colors.blue,
-          child: ListView(
-            children: <Widget>[Text("Hello"), Text("World")],
-          )),
-      bottomNavigationBar: CubertoBottomBar(
-        key: Key("BottomBar"),
-        inactiveIconColor: inactiveColor,
-        tabStyle: CubertoTabStyle.STYLE_FADED_BACKGROUND,
-        selectedTab: currentPage,
-        tabs: tabs
+        controller: tabBarController,
+        physics: const NeverScrollableScrollPhysics(),
+        children: <Widget>[
+          tabView(destinationIndex: 3),
+          tabView(destinationIndex: 0),
+          tabView(destinationIndex: 1),
+          tabView(destinationIndex: 2)
+        ]),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: CubertoBottomBar(
+          barBorderRadius: BorderRadius.circular(30.0),
+          key: const Key("BottomBar"),
+          inactiveIconColor: inactiveColor,
+          tabStyle: CubertoTabStyle.STYLE_FADED_BACKGROUND,
+          selectedTab: currentPage,
+          tabs: tabs
             .map((value) => TabData(
             key: Key(value.title),
             iconData: value.icon,
             title: value.title,
-            tabColor: value.color,
-            tabGradient: value.gradient))
+            tabColor: const Color(0xff6AE0D9),
+            tabGradient: getGradient()))
             .toList(),
-        onTabChangedListener: (position, title, color) {
-          setState(() {
-            currentPage = position;
-            tabBarController.jumpToPage(position);
-          });
-        },
+          onTabChangedListener: (position, title, color) {
+            setState(() {
+              currentPage = position;
+              tabBarController.jumpToPage(position);
+            });
+          },
+        ),
       ),
     );
   }
@@ -141,14 +116,13 @@ class _RoutesHolderState extends State<RoutesHolder>
 class Tabs {
   final IconData icon;
   final String title;
-  final Color color;
-  final Gradient gradient;
-
-  Tabs(this.icon, this.title, this.color, this.gradient);
+  Tabs(this.icon, this.title);
 }
 
-getGradient(Color color) {
+getGradient() {
   return LinearGradient(
-      colors: [color.withOpacity(0.5), color.withOpacity(0.1)],
-      stops: [0.0, 0.7]);
+    colors: [const Color(0xff6AE0D9).withOpacity(0.5), const Color(0xff6AE0D9).withOpacity(0.1)],
+    stops: const [0.0, 0.7]
+  );
 }
+

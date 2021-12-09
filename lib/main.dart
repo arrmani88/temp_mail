@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mail/constants/constants.dart';
 import 'routes/slash_page.dart';
 import 'routes/routes_holder.dart';
-import 'package:mail/constants/constants.dart';
+import 'routes/home_route.dart';
 
 void main() => runApp(const MyApp());
 
@@ -23,16 +24,18 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Color(0xff50C2C9),
-        canvasColor: Color(0xffE5E5E5),
+        primaryColor: const Color(0xff50C2C9),
+        canvasColor: const Color(0xffE5E5E5),
         primarySwatch: Colors.blue,
         fontFamily: 'poppins',
       ),
       initialRoute: '/slash_page',
       routes: {
-        '/slash_page': (context) => SlashPage(),
-        '/routes_holder': (context) => RoutesHolder(title: 'TITLE')
+        '/slash_page': (context) => const SlashPage(),
+        '/routes_holder': (context) => RoutesHolder(title: 'TITLE'),
+        '/home_route': (context) => const HomeRoute()
       },
     );
   }
 }
+

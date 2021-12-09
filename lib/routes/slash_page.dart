@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
+import 'widgets/common_widgets.dart';
 
 class SlashPage extends StatelessWidget {
   const SlashPage({Key? key}) : super(key: key);
@@ -33,22 +34,13 @@ class SlashPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 30.0,),
-                Center(
-                  child: TextButton(
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(13.0),
-                      )),
-                      backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
-                      padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical: 15.0, horizontal: 115.0)),
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.pushNamed(context, '/routes_holder');
-                    },
-                    child: const Text('Get Started', style: TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),),
-                  ),
-                ),
+                Center(child: RoundedButton(
+                  title: 'Get started',
+                  onPressed: () {
+                    // Navigator.pop(context);
+                    Navigator.pushNamed(context, '/home_route');
+                  },
+                ),),
               ],
             ),
           )
