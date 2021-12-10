@@ -3,6 +3,7 @@ import 'package:mail/constants/constants.dart';
 import 'routes/slash_page.dart';
 import 'routes/routes_holder.dart';
 import 'routes/home_route.dart';
+import 'routes/inbox_route.dart';
 
 void main() => runApp(const MyApp());
 
@@ -33,7 +34,8 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/slash_page': (context) => const SlashPage(),
         '/routes_holder': (context) => RoutesHolder(title: 'TITLE'),
-        '/home_route': (context) => const HomeRoute()
+        '/home_route': (context) => const HomeRoute(),
+        '/inbox_route': (context) => InboxRoute()
       },
     );
   }

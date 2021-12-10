@@ -46,7 +46,7 @@ class SlashPage extends StatelessWidget {
                           title: 'Get started',
                           onPressed: () {
                             // Navigator.pop(context);
-                            Navigator.pushNamed(context, '/home_route');
+                            Navigator.pushNamed(context, '/inbox_route');
                           },
                         ),
                       ),
