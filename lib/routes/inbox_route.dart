@@ -82,19 +82,20 @@ class MailWidget extends StatelessWidget {
           ),
           SizedBox(width: 20.0),
           // content
-          Column(
-            children: [
-              SizedBox(width: double.infinity),
-              // title + time
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text('Google account verification'),
-                  Text('13:25')
-                ],
-              )
-            ],
+          Expanded(
+            child: Column(
+              children: [
+                // title + time
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Google account verification', style: TextStyle(fontWeight: FontWeight.w700),),
+                    Text('13:25')
+                  ],
+                )
+              ],
+            ),
           )
         ],
       ),
