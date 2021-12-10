@@ -21,7 +21,7 @@ class InboxRoute extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(onPressed: () {}, icon: Image.asset('assets/images/usa_icon.png'), iconSize: 45.0, padding: EdgeInsets.all(0.0),),
-                      Text('Mailbox', style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.w700, height: 1.0)),
+                      Text('Mailbox', style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.w600, height: 1.0)),
                     ],
                   ),
                   SizedBox(height: 8.0),
@@ -45,12 +45,13 @@ class InboxRoute extends StatelessWidget {
 
 class MailWidget extends StatelessWidget {
   const MailWidget({Key? key}) : super(key: key);
+  final String longText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(23.0),
-      height: 200.0,
+      padding: EdgeInsets.all(20.0),
+      // height: 200.0,
       width: 400.0,
       decoration: BoxDecoration(
           color: Colors.white,
@@ -69,6 +70,8 @@ class MailWidget extends StatelessWidget {
         children: [
           // green point
           Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 height: 12.0,
@@ -90,9 +93,19 @@ class MailWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Google account verification', style: TextStyle(fontWeight: FontWeight.w700),),
-                    Text('13:25')
+                    Text('Google account verification', style: TextStyle(fontWeight: FontWeight.w600, height: 1),),
+                    Text('13:37', style: TextStyle(color: Colors.grey.withOpacity(0.7), fontWeight: FontWeight.w600, height: 1),)
                   ],
+                ),
+                SizedBox(height: 10.0),
+                Text(
+                  longText,
+                  maxLines: 5,
+                  overflow: TextOverflow.fade,
+                  style: TextStyle(
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.w300
+                  ),
                 )
               ],
             ),
