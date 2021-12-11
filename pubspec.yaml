@@ -25,11 +25,13 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/min_corner_circles.png
-    - assets/images/usa_icon.png
-    - assets/images/france_icon.png
-    - assets/images/message_sent.png
-    - assets/images/email.png
+    - assets/icons/min_corner_circles.png
+    - assets/icons/usa_icon.png
+    - assets/icons/france_icon.png
+    - assets/icons/message_sent.png
+    - assets/icons/email.png
+
+    - assets/images/blank_profile_picture.jpeg
 
   fonts:
     - family: poppins

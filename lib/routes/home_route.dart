@@ -10,9 +10,9 @@ class HomeRoute extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset('assets/images/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
+          Image.asset('assets/icons/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
           SafeArea(
-            child: IconButton(onPressed: () {}, icon: Image.asset('assets/images/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(15.0),),
+            child: IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(15.0),),
           ),
           SafeArea(
             child: Padding(
@@ -29,7 +29,7 @@ class HomeRoute extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 15.0),
-                          child: Container(width: 60.0, child: Image.asset('assets/images/email.png')),
+                          child: Container(width: 60.0, child: Image.asset('assets/icons/email.png')),
                         ),
                         const Padding(
                           padding: EdgeInsets.only(bottom: 10.0),
@@ -38,9 +38,9 @@ class HomeRoute extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 30.0,),
-                  Container(width: 400.0, child: RoundedButton(onPressed: () {}, title: 'Copy', icon: Icons.copy),),
-                  const SizedBox(height: 30.0,),
+                  const SizedBox(height: 30.0),
+                  Container(width: 400.0, child: RoundedButton(onPressed: () {}, title: 'Copy', icon: Icons.copy)),
+                  const SizedBox(height: 30.0),
                   Container(width: 400.0, child: RoundedButton(onPressed: () {}, title: 'Change', icon: Icons.import_export_rounded,))
                 ],
               ),

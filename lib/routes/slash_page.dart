@@ -11,9 +11,9 @@ class SlashPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset('assets/images/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
+          Image.asset('assets/icons/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
           SafeArea(
-              child: IconButton(onPressed: () {}, icon: Image.asset('assets/images/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(15.0),),
+              child: Container(width: 400.0, child: IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(15.0),)),
           ),
           SafeArea(
             child: Center(
@@ -25,7 +25,7 @@ class SlashPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const SizedBox(height: 50.0,),
-                      Center(child: Image.asset('assets/images/message_sent.png', height: kScreenHeight * 0.25,)),
+                      Center(child: Image.asset('assets/icons/message_sent.png', height: kScreenHeight * 0.25,)),
                       const SizedBox(height: 20.0,),
                       const Center(child: Text('What is Lorem Ipsum ?', style: TextStyle(fontSize: 20.0))),
                       Padding(
@@ -46,7 +46,7 @@ class SlashPage extends StatelessWidget {
                           title: 'Get started',
                           onPressed: () {
                             // Navigator.pop(context);
-                            Navigator.pushNamed(context, '/inbox_route');
+                            Navigator.pushNamed(context, '/read_message_route');
                           },
                         ),
                       ),
