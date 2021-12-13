@@ -31,13 +31,13 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         fontFamily: 'poppins',
       ),
-      initialRoute: '/slash_page',
+      initialRoute: '/slash_route',
       routes: {
-        '/slash_page': (context) => const SlashPage(),
+        '/slash_route': (context) => const SlashPage(),
         '/routes_holder': (context) => RoutesHolder(title: 'TITLE'),
         '/home_route': (context) => const HomeRoute(),
         '/inbox_route': (context) => InboxRoute(),
-        '/read_message_route': (context) => ReadMessageRoute()
+        '/read_message_route': (context) => const ReadMessageRoute()
       },
     );
   }

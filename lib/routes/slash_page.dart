@@ -15,17 +15,17 @@ class SlashPage extends StatelessWidget {
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-              child: Center(
-                child: SingleChildScrollView(
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      return SizedBox(
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    child: Center(
+                      child: SizedBox(
                         height: constraints.maxHeight,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          // crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(15.0),),
+                            SizedBox(width: 400.0, child: Align(alignment: Alignment.topLeft, child: IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(15.0),))),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
@@ -64,10 +64,10 @@ class SlashPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                      );
-                    }
-                  ),
-                ),
+                      ),
+                    ),
+                  );
+                }
               ),
             ),
           )
