@@ -20,12 +20,14 @@ class SlashPage extends StatelessWidget {
                   return SingleChildScrollView(
                     child: Center(
                       child: SizedBox(
+                        width: 500.0,
                         height: constraints.maxHeight,
+                        // height: double.infinity,
+                        // height: 900,
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          // crossAxisAlignment: CrossAxisAlignment.start,
+                          // mainAxisSize: MainAxisSize.max,
                           children: [
-                            SizedBox(width: 400.0, child: Align(alignment: Alignment.topLeft, child: IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(15.0),))),
+                            SizedBox(child: Align(alignment: Alignment.topLeft, child: IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(15.0),))),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
@@ -40,15 +42,11 @@ class SlashPage extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.symmetric(vertical: 25.0),
                                       child: Center(
-                                        child: Container(
-                                            width: 400.0,
-                                            height: 110.0,
-                                            child: Text(text, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w200), textAlign: TextAlign.center,)
-                                        ),
+                                        child: Text(text, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w200), textAlign: TextAlign.center,)
                                       ),
                                     ),
                                     Container(
-                                      width: 400.0,
+                                      width: 500.0,
                                       child: RoundedButton(
                                         icon: Icons.play_arrow_outlined,
                                         title: 'Get started',
@@ -76,4 +74,5 @@ class SlashPage extends StatelessWidget {
     );
   }
 }
+
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
-import 'routes/slash_page.dart';
+import 'routes/slash_route.dart';
 import 'routes/routes_holder.dart';
 import 'routes/home_route.dart';
 import 'routes/inbox_route.dart';

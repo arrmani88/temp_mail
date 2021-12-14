@@ -17,7 +17,7 @@ class InboxRoute extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 15.0,    vertical: 15.0),
               child: Center(
                 child: Container(
-                  width: 400.0,
+                  width: 500.0,
                   child: Column(
                     children: [
                       Row(
@@ -61,7 +61,7 @@ class MailWidget extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(20.0),
         // height: 200.0,
-        width: 400.0,
+        width: 500.0,
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20.0),
