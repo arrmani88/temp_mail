@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
-import 'package:mail/routes/widgets/common_widgets.dart';
+import 'package:mail/widgets/common_widgets.dart';
 
 class ReadMessageRoute extends StatelessWidget {
   const ReadMessageRoute({Key? key}) : super(key: key);
+  final String _txt = 'Hello nkiaygaboyka@mail.com,\n\nFollow this link to verify your email address.\n\nhttps://winning-article-v2.firebaseapp.com/__/auth/action?mode=verifyEmail&oobCode=FpVDozhnYNobeV1U7l7LRGOVpCHhNR5sFRLQ1 ';
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +19,12 @@ class ReadMessageRoute extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: EdgeInsets.all(0.0),),
-                    SizedBox(height: 8.0),
+                    IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(0.0),),
+                    const SizedBox(height: 8.0),
                     SmallButton(onPressed: () {}, title: 'Back', icon: Icons.arrow_left_rounded),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Container(
-                      padding: EdgeInsets.all(25.0),
+                      padding: const EdgeInsets.all(25.0),
                       height: 500.0,
                       width: 500.0,
                       decoration: BoxDecoration(
@@ -34,19 +35,31 @@ class ReadMessageRoute extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text('Verify your email for winning Article V2', style: TextStyle(fontWeight: FontWeight.w600)),
+                          const Text('Verify your email for winning Article V2', style: TextStyle(fontWeight: FontWeight.w600)),
                           const Padding(child: Divider(color: Colors.grey), padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0)),
-                          Row(
+                          Column(
                             children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(30.0),
-                                child: Image.asset('assets/images/blank_profile_picture.jpeg', height: 50.0, width: 50.0,),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    child: Image.asset('assets/images/blank_profile_picture.jpeg', height: 50.0, width: 50.0,),
+                                  ),
+                                  const SizedBox(width: 15.0),
+                                  Expanded(child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: const [
+                                      Text('from: <noreply@winning-article-v2.firebaseapp.com>', style: TextStyle(fontWeight: FontWeight.w400)),
+                                      Text('date: 22-11-2021 23:59:22', style: TextStyle(fontWeight: FontWeight.w400)),
+                                    ],
+                                  )),
+                                ],
                               ),
-                              SizedBox(width: 15.0),
-                              Expanded(flex: 1, child: Text('from: <noreply@winning-article-v2.firebaseapp.com>', style: TextStyle(fontWeight: FontWeight.w400),))
+                              const Padding(child: Divider(color: Colors.grey), padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0)),
+                              Text(_txt ,style: const TextStyle(color: Color(0xff585D6A))),
                             ],
                           ),
-
                         ],
                       ),
                     )

@@ -1,14 +1,3 @@
-// import 'package:flutter/material.dart';
-//
-// class RoutesHolder extends StatelessWidget {
-//   const RoutesHolder({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
-
 import 'package:cuberto_bottom_bar/cuberto_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -34,16 +23,12 @@ class _RoutesHolderState extends State<RoutesHolder>
   void initState() {
     super.initState();
     currentPage = 0;
-
     tabs.add(
         Tabs(Icons.home, "Home"));
     tabs.add(
-        Tabs(Icons.search, "Search"));
+        Tabs(Icons.inbox, "Inbox"));
     tabs.add(
-        Tabs(Icons.alarm, "Alarm"));
-    tabs.add(
-        Tabs(Icons.settings, "Settings"));
-
+        Tabs(Icons.menu, "Menu"));
     tabBarController = PageController(initialPage: 0);
   }
 

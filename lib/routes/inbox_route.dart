@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
-import 'package:mail/routes/widgets/common_widgets.dart';
+import 'package:mail/widgets/common_widgets.dart';
 
 class InboxRoute extends StatelessWidget {
   InboxRoute({Key? key}) : super(key: key);
-  // final List<Widget> _content = ;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class InboxRoute extends StatelessWidget {
           Image.asset('assets/icons/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0,    vertical: 15.0),
+              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
               child: Center(
                 child: Container(
                   width: 500.0,
@@ -24,7 +23,7 @@ class InboxRoute extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: EdgeInsets.all(0.0),),
-                          Text('Mailbox', style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.w600, height: 1.0)),
+                          // Text('Mailbox', style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.w600, height: 1.0)),
                         ],
                       ),
                       SizedBox(height: 8.0),
@@ -67,7 +66,6 @@ class MailWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0),
             boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 0.8, blurRadius: 5, offset: const Offset(8, 8),)]
         ),
-
         child: Row(
           children: [
             // green point

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
-import 'package:mail/routes/widgets/common_widgets.dart';
+import 'package:mail/widgets/common_widgets.dart';
 
 class HomeRoute extends StatelessWidget {
   const HomeRoute({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class HomeRoute extends StatelessWidget {
           Image.asset('assets/icons/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   return SingleChildScrollView(
@@ -24,7 +24,7 @@ class HomeRoute extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(width: 500.0, child: Align(alignment: Alignment.topLeft, child: IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(15.0),))),
+                            SizedBox(width: 500.0, child: Align(alignment: Alignment.topLeft, child: IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(0.0),))),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),

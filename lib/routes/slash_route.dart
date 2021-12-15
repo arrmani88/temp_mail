@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
-import 'widgets/common_widgets.dart';
+import 'package:mail/widgets/common_widgets.dart';
 
 class SlashPage extends StatelessWidget {
   const SlashPage({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class SlashPage extends StatelessWidget {
           Image.asset('assets/icons/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   return SingleChildScrollView(
@@ -22,12 +22,13 @@ class SlashPage extends StatelessWidget {
                       child: SizedBox(
                         width: 500.0,
                         height: constraints.maxHeight,
-                        // height: double.infinity,
-                        // height: 900,
                         child: Column(
                           // mainAxisSize: MainAxisSize.max,
                           children: [
-                            SizedBox(child: Align(alignment: Alignment.topLeft, child: IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(15.0),))),
+                            SizedBox(child: Align(
+                              alignment: Alignment.topLeft, child:
+                              IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(0),)
+                            )),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
@@ -52,7 +53,7 @@ class SlashPage extends StatelessWidget {
                                         title: 'Get started',
                                         onPressed: () {
                                           // Navigator.pop(context);
-                                          Navigator.pushNamed(context, '/home_route');
+                                          Navigator.pushNamed(context, '/routes_holder');
                                         },
                                       ),
                                     ),
