@@ -16,7 +16,7 @@ class InboxRoute extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 15.0),
               child: Center(
                 child: SizedBox(
-                  width: 500.0,
+                  width: 530.0,
                   child: Column(
                     children: [
                       Row(
