@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
-import 'routes/slash_route.dart';
+import 'routes/get_started_route.dart';
 import 'routes/routes_holder.dart';
 import 'routes/home_route.dart';
 import 'routes/inbox_route.dart';
@@ -31,9 +31,9 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         fontFamily: 'poppins',
       ),
-      initialRoute: '/slash_route',
+      initialRoute: '/get_started_route',
       routes: {
-        '/slash_route': (context) => const SlashPage(),
+        '/get_started_route': (context) => const GetStartedRoute(),
         '/routes_holder': (context) => RoutesHolder(title: 'TITLE'),
         '/home_route': (context) => const HomeRoute(),
         '/inbox_route': (context) => InboxRoute(),

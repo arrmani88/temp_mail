@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
 import 'package:mail/widgets/common_widgets.dart';
 
-class SlashPage extends StatelessWidget {
-  const SlashPage({Key? key}) : super(key: key);
+class GetStartedRoute extends StatelessWidget {
+  const GetStartedRoute({Key? key}) : super(key: key);
   final String text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum dictum tempus, interdum at dignissim metus. Ultricies sed nunc.';
 
   @override
@@ -23,7 +23,6 @@ class SlashPage extends StatelessWidget {
                         width: 500.0,
                         height: constraints.maxHeight,
                         child: Column(
-                          // mainAxisSize: MainAxisSize.max,
                           children: [
                             SizedBox(child: Align(
                               alignment: Alignment.topLeft, child:
@@ -52,7 +51,7 @@ class SlashPage extends StatelessWidget {
                                         icon: Icons.play_arrow_outlined,
                                         title: 'Get started',
                                         onPressed: () {
-                                          // Navigator.pop(context);
+                                          Navigator.pop(context);
                                           Navigator.pushNamed(context, '/routes_holder');
                                         },
                                       ),

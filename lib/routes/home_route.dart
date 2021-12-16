@@ -7,14 +7,13 @@ class HomeRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset('assets/icons/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
-              child: LayoutBuilder(
+    return Stack(
+      children: [
+        Image.asset('assets/icons/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
+        SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+            child: LayoutBuilder(
                 builder: (context, constraints) {
                   return SingleChildScrollView(
                     child: Center(
@@ -64,11 +63,10 @@ class HomeRoute extends StatelessWidget {
                     ),
                   );
                 }
-              ),
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 

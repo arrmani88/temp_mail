@@ -7,44 +7,53 @@ class InboxRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset('assets/icons/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
-          SafeArea(
+    return Stack(
+      children: [
+        Image.asset('assets/icons/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
+        SingleChildScrollView(
+          child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+              padding: const EdgeInsets.symmetric(vertical: 15.0),
               child: Center(
-                child: Container(
+                child: SizedBox(
                   width: 500.0,
                   child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: EdgeInsets.all(0.0),),
-                          // Text('Mailbox', style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.w600, height: 1.0)),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15.0),
+                            child: IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: EdgeInsets.all(0.0),),
+                          ),
                         ],
                       ),
                       SizedBox(height: 8.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          SmallButton(onPressed: () {}, title: 'Refresh', icon: Icons.refresh),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            SmallButton(onPressed: () {}, title: 'Refresh', icon: Icons.refresh),
+                          ],
+                        ),
                       ),
-                      SizedBox(height: 20.0),
+                      // SizedBox(height: 5.0),
                       MailWidget(),
                       MailWidget(),
                       MailWidget(),
+                      MailWidget(),
+                      MailWidget(),
+                      MailWidget(),
+                      const SizedBox(height: 5.0)
                     ],
                   ),
                 ),
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -56,55 +65,60 @@ class MailWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
-      child: Container(
-        padding: const EdgeInsets.all(20.0),
-        // height: 200.0,
-        width: 500.0,
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20.0),
-            boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 0.8, blurRadius: 5, offset: const Offset(8, 8),)]
-        ),
-        child: Row(
-          children: [
-            // green point
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  height: 12.0,
-                  width: 12.0,
-                  decoration: BoxDecoration(color: Theme.of(context).primaryColor, borderRadius: BorderRadius.circular(50.0)),
-                ),
-              ],
-            ),
-            SizedBox(width: 20.0),
-            // content
-            Expanded(
-              child: Column(
+      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15),
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, '/read_message_route');
+        },
+        child: Container(
+          padding: const EdgeInsets.all(20.0),
+          // height: 200.0,
+          width: 500.0,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20.0),
+              boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 0.8, blurRadius: 5, offset: const Offset(8, 8),)]
+          ),
+          child: Row(
+            children: [
+              // green point
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
                 children: [
-                  // title + time
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Google account verification', style: TextStyle(fontWeight: FontWeight.w600, height: 1),),
-                      Text('13:37', style: TextStyle(color: Colors.grey.withOpacity(0.7), fontWeight: FontWeight.w600, height: 1),)
-                    ],
+                  Container(
+                    height: 12.0,
+                    width: 12.0,
+                    decoration: BoxDecoration(color: Theme.of(context).primaryColor, borderRadius: BorderRadius.circular(50.0)),
                   ),
-                  const SizedBox(height: 10.0),
-                  Text(
-                    longText,
-                    maxLines: 5,
-                    overflow: TextOverflow.fade,
-                    style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.w300),
-                  )
                 ],
               ),
-            )
-          ],
+              SizedBox(width: 20.0),
+              // content
+              Expanded(
+                child: Column(
+                  children: [
+                    // title + time
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Google account verification', style: TextStyle(fontWeight: FontWeight.w600, height: 1),),
+                        Text('13:37', style: TextStyle(color: Colors.grey.withOpacity(0.7), fontWeight: FontWeight.w600, height: 1),)
+                      ],
+                    ),
+                    const SizedBox(height: 10.0),
+                    Text(
+                      longText,
+                      maxLines: 5,
+                      overflow: TextOverflow.fade,
+                      style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.w300),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

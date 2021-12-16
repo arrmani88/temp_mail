@@ -21,7 +21,9 @@ class ReadMessageRoute extends StatelessWidget {
                   children: [
                     IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(0.0),),
                     const SizedBox(height: 8.0),
-                    SmallButton(onPressed: () {}, title: 'Back', icon: Icons.arrow_left_rounded),
+                    SmallButton(onPressed: () {
+                      Navigator.pop(context);
+                    }, title: 'Back', icon: Icons.arrow_left_rounded),
                     const SizedBox(height: 10.0),
                     Container(
                       padding: const EdgeInsets.all(25.0),
