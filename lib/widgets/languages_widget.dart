@@ -25,7 +25,12 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
                 ),
                 child: Column(
                   children: [
-                    SmallButton(onPressed: () {}, title: 'Confirm', icon: Icons.check),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        SmallButton(onPressed: () {}, title: 'Confirm', icon: Icons.check),
+                      ],
+                    ),
                     LanguageChoice(iconPath: 'assets/icons/usa_icon.png', title: 'English'),
                     LanguageChoice(iconPath: 'assets/icons/france_icon.png', title: 'Français'),
                     LanguageChoice(iconPath: 'assets/icons/daad_icon.png', title: 'العربية'),
