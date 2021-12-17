@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         fontFamily: 'poppins',
       ),
-      initialRoute: '/get_started_route',
+      initialRoute: '/routes_holder',
       routes: {
         '/get_started_route': (context) => const GetStartedRoute(),
         '/routes_holder': (context) => RoutesHolder(title: 'TITLE'),
