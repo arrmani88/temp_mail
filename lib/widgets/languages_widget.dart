@@ -30,6 +30,7 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
               animationController.reverse().then((value) => setState(() {}));
             },
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
