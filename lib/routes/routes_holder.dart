@@ -4,15 +4,12 @@ import 'package:flutter/material.dart';
 import 'home_route.dart';
 import 'inbox_route.dart';
 import 'read_message_route.dart';
+import 'package:mail/globals/variables.dart';
 
 class RoutesHolder extends StatefulWidget {
-  RoutesHolder({required this.title});
-  final String title;
-
-  @override
-  _RoutesHolderState createState() => _RoutesHolderState();
+  const RoutesHolder({Key? key}) : super(key: key);
+  @override _RoutesHolderState createState() => _RoutesHolderState();
 }
-
 class _RoutesHolderState extends State<RoutesHolder> with SingleTickerProviderStateMixin {
   late int currentPage;
   late PageController tabBarController;
@@ -56,6 +53,7 @@ class _RoutesHolderState extends State<RoutesHolder> with SingleTickerProviderSt
             .toList(),
           onTabChangedListener: (position, title, color) {
             setState(() {
+              isLanguagesTabOpened = false;
               currentPage = position;
               tabBarController.jumpToPage(position);
             });

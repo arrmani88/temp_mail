@@ -34,10 +34,10 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/routes_holder',
       routes: {
         '/get_started_route': (context) => const GetStartedRoute(),
-        '/routes_holder': (context) => RoutesHolder(title: 'TITLE'),
-        '/home_route': (context) => const HomeRoute(),
-        '/inbox_route': (context) => InboxRoute(),
-        '/read_message_route': (context) => const ReadMessageRoute()
+        '/routes_holder': (context) => RoutesHolder(),
+        // '/home_route': (context) => const HomeRoute(),
+        // '/inbox_route': (context) => InboxRoute(),
+        // '/read_message_route': (context) => const ReadMessageRoute()
       },
     );
   }

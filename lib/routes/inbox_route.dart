@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
 import 'package:mail/widgets/common_widgets.dart';
+import 'package:mail/widgets/languages_widget.dart';
+import 'package:mail/globals/variables.dart';
 
-class InboxRoute extends StatelessWidget {
+class InboxRoute extends StatefulWidget {
   InboxRoute({Key? key}) : super(key: key);
-
+  @override
+  State<InboxRoute> createState() => _InboxRouteState();
+}
+class _InboxRouteState extends State<InboxRoute> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -24,11 +29,14 @@ class InboxRoute extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(left: 15.0),
-                            child: IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: EdgeInsets.all(0.0),),
+                            child: IconButton(onPressed: () {setState(() {
+                              isLanguagesTabOpened = true;
+                              setState(() {});
+                            });}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: EdgeInsets.all(0.0),),
                           ),
                         ],
                       ),
-                      SizedBox(height: 8.0),
+                      const SizedBox(height: 8.0),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 15.0),
                         child: Row(
@@ -53,6 +61,7 @@ class InboxRoute extends StatelessWidget {
             ),
           ),
         ),
+        isLanguagesTabOpened ? const LanguagesWidget() : Container()
       ],
     );
   }

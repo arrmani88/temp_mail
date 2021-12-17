@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
 import 'package:mail/widgets/common_widgets.dart';
 import 'package:mail/widgets/languages_widget.dart';
+import 'package:mail/globals/variables.dart';
 
-class HomeRoute extends StatelessWidget {
-  const HomeRoute({Key? key}) : super(key: key);
+class HomeRoute extends StatefulWidget {
+  HomeRoute({Key? key}) : super(key: key);
+  @override State<HomeRoute> createState() => _HomeRouteState();
+}
 
+class _HomeRouteState extends State<HomeRoute> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -24,7 +28,10 @@ class HomeRoute extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(width: 500.0, child: Align(alignment: Alignment.topLeft, child: IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(0.0)))),
+                            SizedBox(width: 500.0, child: Align(alignment: Alignment.topLeft, child: IconButton(onPressed: () {
+                              isLanguagesTabOpened = true;
+                              setState(() {});
+                            }, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(0.0)))),
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
@@ -67,11 +74,10 @@ class HomeRoute extends StatelessWidget {
             ),
           ),
         ),
-        const LanguagesWidget()
+        LanguagesWidget()
       ],
     );
   }
-
 }
 
 /*
