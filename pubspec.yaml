@@ -28,6 +28,8 @@ flutter:
     - assets/icons/min_corner_circles.png
     - assets/icons/usa_icon.png
     - assets/icons/france_icon.png
+    - assets/icons/spain_icon.png
+    - assets/icons/germany_icon.png
     - assets/icons/daad_icon.png
     - assets/icons/message_sent.png
     - assets/icons/email.png

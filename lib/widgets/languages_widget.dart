@@ -30,15 +30,13 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
               animationController.reverse().then((value) => setState(() {}));
             },
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
-                  child: SizeTransition(
-                    sizeFactor: animation,
-                    axis: Axis.vertical,
-                    axisAlignment: -1,
+                  child: InkWell(
+                    onTap: () {},
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                       width: 500.0,
@@ -46,21 +44,28 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
                         borderRadius: BorderRadius.circular(10.0),
                         color: Colors.white,
                       ),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              SmallButton(onPressed: () {
-                                isLanguagesTabOpened = false;
-                                animationController.reverse().then((value) => setState(() {}));
-                              }, title: 'Confirm', icon: Icons.check),
-                            ],
-                          ),
-                          LanguageChoice(iconPath: 'assets/icons/usa_icon.png', title: 'English'),
-                          LanguageChoice(iconPath: 'assets/icons/france_icon.png', title: 'Français'),
-                          LanguageChoice(iconPath: 'assets/icons/daad_icon.png', title: 'العربية'),
-                        ],
+                      child: SizeTransition(
+                        sizeFactor: animation,
+                        axis: Axis.vertical,
+                        axisAlignment: -1,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                SmallButton(onPressed: () {
+                                  isLanguagesTabOpened = false;
+                                  animationController.reverse().then((value) => setState(() {}));
+                                }, title: 'Confirm', icon: Icons.check),
+                              ],
+                            ),
+                            LanguageChoice(iconPath: 'assets/icons/usa_icon.png', title: 'English'),
+                            LanguageChoice(iconPath: 'assets/icons/france_icon.png', title: 'Français'),
+                            LanguageChoice(iconPath: 'assets/icons/spain_icon.png', title: 'Español'),
+                            LanguageChoice(iconPath: 'assets/icons/germany_icon.png', title: 'Deutsch'),
+                            // LanguageChoice(iconPath: 'assets/icons/daad_icon.png', title: 'العربية'),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -82,10 +87,10 @@ class LanguageChoice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: InkWell(
-        onTap: () {},
+    return InkWell(
+      onTap: () {},
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

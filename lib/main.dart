@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
         '/routes_holder': (context) => RoutesHolder(),
         // '/home_route': (context) => const HomeRoute(),
         // '/inbox_route': (context) => InboxRoute(),
-        // '/read_message_route': (context) => const ReadMessageRoute()
+        '/read_message_route': (context) => const ReadMessageRoute()
       },
     );
   }

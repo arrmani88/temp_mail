@@ -61,7 +61,7 @@ class _InboxRouteState extends State<InboxRoute> {
             ),
           ),
         ),
-        isLanguagesTabOpened ? const LanguagesWidget() : Container()
+        LanguagesWidget()
       ],
     );
   }
