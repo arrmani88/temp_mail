@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mail/widgets/common_widgets.dart';
 import 'package:mail/globals/variables.dart';
+import 'package:mail/widgets/drawer.dart';
 
 class LanguagesWidget extends StatefulWidget {
   const LanguagesWidget({Key? key}) : super(key: key);

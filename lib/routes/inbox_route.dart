@@ -6,8 +6,7 @@ import 'package:mail/globals/variables.dart';
 
 class InboxRoute extends StatefulWidget {
   InboxRoute({Key? key}) : super(key: key);
-  @override
-  State<InboxRoute> createState() => _InboxRouteState();
+  @override State<InboxRoute> createState() => _InboxRouteState();
 }
 class _InboxRouteState extends State<InboxRoute> {
   @override
