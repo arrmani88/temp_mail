@@ -33,6 +33,7 @@ flutter:
     - assets/icons/daad_icon.png
     - assets/icons/message_sent.png
     - assets/icons/email.png
+    - assets/icons/min_gradient.png
 
     - assets/images/blank_profile_picture.jpeg
 

@@ -64,21 +64,28 @@ class _RoutesHolderState extends State<RoutesHolder> with SingleTickerProviderSt
         child: Padding(
           padding: const EdgeInsets.only(left: 100.0, bottom: 5.0, right: 5.0, top: 5.0),
           child: Container(
-            padding: const EdgeInsets.all(10.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15.0),
             ),
             width: 400.0,
             // margin: EdgeInsets.only(bottom: 60.0),
-            child: ListView(
+            child: Stack(
               children: [
-                DrawerItem(icon: Icons.help, title: 'F.A.Q.'),
-                DrawerItem(icon: Icons.privacy_tip_outlined, title: 'Privacy policy'),
-                DrawerItem(icon: Icons.feedback, title: 'Feedback'),
-                DrawerItem(icon: Icons.info, title: 'About us'),
-                DrawerItem(icon: Icons.share, title: 'Share this app'),
-                
+                Image.asset('assets/icons/min_gradient.png'),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ListView(
+                    children: [
+                      DrawerItem(icon: Icons.help, title: 'F.A.Q.'),
+                      DrawerItem(icon: Icons.privacy_tip_outlined, title: 'Privacy policy'),
+                      DrawerItem(icon: Icons.feedback, title: 'Feedback'),
+                      DrawerItem(icon: Icons.info, title: 'About us'),
+                      DrawerItem(icon: Icons.share, title: 'Share this app'),
+
+                    ],
+                  ),
+                ),
               ],
             )),
         ),

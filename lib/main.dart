@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: const Color(0xff50C2C9),
         canvasColor: const Color(0xffE5E5E5),
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.blue,
         fontFamily: 'poppins',
       ),
       initialRoute: '/routes_holder',
