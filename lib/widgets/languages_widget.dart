@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mail/widgets/common_widgets.dart';
 import 'package:mail/globals/variables.dart';
-import 'package:mail/widgets/drawer.dart';
 
 class LanguagesWidget extends StatefulWidget {
   const LanguagesWidget({Key? key}) : super(key: key);
@@ -31,7 +30,6 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
               animationController.reverse().then((value) => setState(() {}));
             },
             child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
@@ -81,8 +79,8 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
 }
 
 class LanguageChoice extends StatefulWidget {
-  String iconPath;
-  String title;
+  final String iconPath;
+  final String title;
   var id;
 
   LanguageChoice({Key? key, required this.iconPath, required this.title, required this.id}) : super(key: key);

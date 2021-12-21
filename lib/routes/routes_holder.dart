@@ -5,7 +5,6 @@ import 'package:mail/constants/constants.dart';
 import 'package:mail/widgets/drawer.dart';
 import 'home_route.dart';
 import 'inbox_route.dart';
-import 'read_message_route.dart';
 import 'package:mail/globals/variables.dart';
 
 class RoutesHolder extends StatefulWidget {
