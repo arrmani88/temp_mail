@@ -46,12 +46,12 @@ class _InboxRouteState extends State<InboxRoute> {
                         ),
                       ),
                       // SizedBox(height: 5.0),
-                      MailWidget(),
-                      MailWidget(),
-                      MailWidget(),
-                      MailWidget(),
-                      MailWidget(),
-                      MailWidget(),
+                      const MailWidget(),
+                      const MailWidget(),
+                      const MailWidget(),
+                      const MailWidget(),
+                      const MailWidget(),
+                      const MailWidget(),
                       const SizedBox(height: 5.0)
                     ],
                   ),
@@ -88,6 +88,7 @@ class MailWidget extends StatelessWidget {
               boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 0.8, blurRadius: 5, offset: const Offset(8, 8),)]
           ),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // green point
               Column(

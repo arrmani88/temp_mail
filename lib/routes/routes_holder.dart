@@ -32,12 +32,14 @@ class _RoutesHolderState extends State<RoutesHolder> with SingleTickerProviderSt
       body: PageView(
         controller: tabBarController,
         physics: const NeverScrollableScrollPhysics(),
-        children: <Widget>[
+        children: <Widget> [
           HomeRoute(),
           InboxRoute(),
+          // Center(child: Text('child1'),),
+          // Center(child: Text('child2'),),
         ],
       ),
-      endDrawer: MyDrawer(),
+      endDrawer: const MyDrawer(),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.symmetric(horizontal: bottomBarPadding),
         child: Padding(
