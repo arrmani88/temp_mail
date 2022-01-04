@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DrawerItem extends StatelessWidget {
   String title;
   IconData icon;
-  DrawerItem({Key? key, required this.icon, required this.title}) : super(key: key);
+  String url;
+  DrawerItem({Key? key, required this.icon, required this.title, required this.url}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-      width: 500.0,
-      child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Icon(icon, color: const Color(0xff585D6A)),
-          const SizedBox(width: 20.0),
-          Text(title, style: const TextStyle(fontSize: 25.0, color: Color(0xff585D6A))),
-        ],
+    return InkWell(
+      onTap: () async {
+        if (!await launch(url)) throw 'Could not launch $url';
+      },
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+        width: 500.0,
+        child: Row(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Icon(icon, color: const Color(0xff585D6A)),
+            const SizedBox(width: 20.0),
+            Text(title, style: const TextStyle(fontSize: 25.0, color: Color(0xff585D6A))),
+          ],
+        ),
       ),
     );
   }
@@ -59,11 +66,11 @@ class MyDrawer extends StatelessWidget {
                           ],
                         ),
                       ),
-                      DrawerItem(icon: Icons.help, title: 'F.A.Q.'),
-                      DrawerItem(icon: Icons.privacy_tip_outlined, title: 'Privacy policy'),
-                      DrawerItem(icon: Icons.feedback, title: 'Feedback'),
-                      DrawerItem(icon: Icons.share, title: 'Share this app'),
-                      DrawerItem(icon: Icons.info, title: 'About us'),
+                      DrawerItem(title: 'F.A.Q.', icon: Icons.help, url: 'https://www.google.com',),
+                      DrawerItem(title: 'Privacy policy', icon: Icons.privacy_tip_outlined, url: 'https://www.google.com',),
+                      DrawerItem(title: 'Feedback', icon: Icons.feedback, url: 'https://www.google.com',),
+                      DrawerItem(title: 'Share this app', icon: Icons.share, url: 'https://www.google.com',),
+                      DrawerItem(title: 'About us', icon: Icons.info, url: 'https://www.google.com',),
                     ],
                   ),
                 ),
