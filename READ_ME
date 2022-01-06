@@ -2,75 +2,10 @@ TODO:
 Uncheck when other is clicked
 Update corner language icon
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import 'package:flutter/material.dart';
-import 'package:mail/constants/constants.dart';
-
-class HomeRoute extends StatelessWidget {
-  const HomeRoute({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset('assets/images/min_corner_circles.png', width: kScreenWidth * 0.5, fit: BoxFit.fitWidth),
-          SafeArea(
-            child: IconButton(onPressed: () {}, icon: Image.asset('assets/images/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(15.0),),
-          ),
-          SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-
+----------------
+languagesBloc
+lwast dial checkbox unclickable
+----------------
 w100 Thin, the least thick
 w200 Extra-light
 w300 Light

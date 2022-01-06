@@ -1,3 +1,3 @@
 bool isLanguagesTabOpened = false;
-enum languages {EN, ES, FR, DE}
-var selectedLanguage = languages.EN;
+enum languages {en, es, fr, de}
+var selectedLanguage = languages.en;
