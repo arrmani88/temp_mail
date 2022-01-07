@@ -11,7 +11,7 @@ class FrenchPressed extends LanguagesEvent {}
 class GermanPressed extends LanguagesEvent {}
 
 class LanguagesBloc extends Bloc<LanguagesEvent, languages> {
-  LanguagesBloc() : super(languages.en) {
+  LanguagesBloc() : super(confirmedLanguage) {
     on<EnglishPressed>((event, emit) => emit(languages.en));
     on<SpanishPressed>((event, emit) => emit(languages.es));
     on<FrenchPressed>((event, emit) => emit(languages.fr));

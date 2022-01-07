@@ -17,6 +17,7 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
     super.initState();
     animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 200));
     animation = CurvedAnimation(parent: animationController, curve: Curves.decelerate);
+    selectedLanguage = null;
   }
 
   @override
@@ -57,6 +58,7 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   SmallButton(onPressed: () {
+                                    confirmedLanguage = selectedLanguage;
                                     isLanguagesTabOpened = false;
                                     animationController.reverse().then((value) => setState(() {}));
                                   }, title: 'Confirm', icon: Icons.check),
@@ -123,7 +125,7 @@ class _LanguageChoiceState extends State<LanguageChoice> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // IconButton(onPressed: () {}, icon: Image.asset(widget.iconPath), iconSize: 45.0, padding: const EdgeInsets.all(0.0)),
-                Container(height: 45.0, child: Image.asset(widget.iconPath)),
+                SizedBox(height: 45.0, child: Image.asset(widget.iconPath)),
                 Text(widget.title, style: const TextStyle(fontSize: 20.0)),
                 Checkbox(
                   onChanged: (_) {},
@@ -137,4 +139,3 @@ class _LanguageChoiceState extends State<LanguageChoice> {
     );
   }
 }
-
