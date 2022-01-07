@@ -17,11 +17,11 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
     super.initState();
     animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 200));
     animation = CurvedAnimation(parent: animationController, curve: Curves.decelerate);
-    selectedLanguage = null;
   }
 
   @override
   Widget build(BuildContext context) {
+    selectedLanguage = null;
     if (isLanguagesTabOpened == true) {
       animationController.forward();
       return BlocProvider(
@@ -58,7 +58,7 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   SmallButton(onPressed: () {
-                                    confirmedLanguage = selectedLanguage;
+                                    if (selectedLanguage != null) confirmedLanguage = selectedLanguage;
                                     isLanguagesTabOpened = false;
                                     animationController.reverse().then((value) => setState(() {}));
                                   }, title: 'Confirm', icon: Icons.check),

@@ -6,6 +6,8 @@ import 'package:mail/widgets/drawer.dart';
 import 'home_route.dart';
 import 'inbox_route.dart';
 import 'package:mail/globals/variables.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mail/bloc/languages_bloc.dart';
 
 class RoutesHolder extends StatefulWidget {
   const RoutesHolder({Key? key}) : super(key: key);
