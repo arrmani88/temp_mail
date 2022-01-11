@@ -31,16 +31,19 @@ class _RoutesHolderState extends State<RoutesHolder> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: tabBarController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: <Widget> [
-          HomeRoute(),
-          InboxRoute(),
-          // Center(child: Text('child1'),),
-          // Center(child: Text('child2'),),
-        ],
+      body: BlocProvider(
+        create: (context) => LanguagesBloc(),
+        child: PageView(
+          controller: tabBarController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: <Widget> [
+            HomeRoute(),
+            InboxRoute(),
+            // Center(child: Text('child1'),),
+            // Center(child: Text('child2'),),
+          ],
       ),
+),
       endDrawer: const MyDrawer(),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.symmetric(horizontal: bottomBarPadding),

@@ -17,65 +17,63 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
     super.initState();
     animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 200));
     animation = CurvedAnimation(parent: animationController, curve: Curves.decelerate);
+    selectedLanguage = confirmedLanguage;
   }
 
   @override
   Widget build(BuildContext context) {
-    selectedLanguage = null;
     if (isLanguagesTabOpened == true) {
       animationController.forward();
-      return BlocProvider(
-        create: (_) => LanguagesBloc(),
-        child: Positioned.fill(
-          child: Container(
-          color: Colors.black.withOpacity(0.7),
-            child: InkWell(
-              onTap: () {
-                isLanguagesTabOpened = false;
-                animationController.reverse().then((value) => setState(() {}));
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
-                    child: InkWell(
-                      onTap: () {},
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                        width: 500.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.white,
-                        ),
-                        child: SizeTransition(
-                          sizeFactor: animation,
-                          axis: Axis.vertical,
-                          axisAlignment: -1,
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  SmallButton(onPressed: () {
-                                    if (selectedLanguage != null) confirmedLanguage = selectedLanguage;
-                                    isLanguagesTabOpened = false;
-                                    animationController.reverse().then((value) => setState(() {}));
-                                  }, title: 'Confirm', icon: Icons.check),
-                                ],
-                              ),
-                              LanguageChoice(id: languages.en, iconPath: 'assets/icons/usa_icon.png', title: 'English',),
-                              LanguageChoice(id: languages.es, iconPath: 'assets/icons/spain_icon.png', title: 'Español',),
-                              LanguageChoice(id: languages.fr, iconPath: 'assets/icons/france_icon.png', title: 'Français',),
-                              LanguageChoice(id: languages.de, iconPath: 'assets/icons/germany_icon.png', title: 'Deutsch',),
-                            ],
-                          ),
+      return Positioned.fill(
+        child: Container(
+        color: Colors.black.withOpacity(0.7),
+          child: InkWell(
+            onTap: () {
+              isLanguagesTabOpened = false;
+              selectedLanguage = confirmedLanguage;
+              animationController.reverse().then((value) => setState(() {}));
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                  child: InkWell(
+                    onTap: () {},
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                      width: 500.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.white,
+                      ),
+                      child: SizeTransition(
+                        sizeFactor: animation,
+                        axis: Axis.vertical,
+                        axisAlignment: -1,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                SmallButton(onPressed: () {
+                                  if (selectedLanguage != null) confirmedLanguage = selectedLanguage;
+                                  isLanguagesTabOpened = false;
+                                  animationController.reverse().then((value) => setState(() {}));
+                                }, title: 'Confirm', icon: Icons.check),
+                              ],
+                            ),
+                            LanguageChoice(id: languages.en, iconPath: 'assets/icons/usa_icon.png', title: 'English',),
+                            LanguageChoice(id: languages.es, iconPath: 'assets/icons/spain_icon.png', title: 'Español',),
+                            LanguageChoice(id: languages.fr, iconPath: 'assets/icons/france_icon.png', title: 'Français',),
+                            LanguageChoice(id: languages.de, iconPath: 'assets/icons/germany_icon.png', title: 'Deutsch',),
+                          ],
                         ),
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
         ),
@@ -99,7 +97,7 @@ class _LanguageChoiceState extends State<LanguageChoice> {
   Widget build(BuildContext context) {
     return BlocBuilder<LanguagesBloc, languages>(
       builder: (context, state) {
-        bool checkBoxValue = (state == widget.id) ? true : false;
+        bool checkBoxValue = (selectedLanguage == widget.id) ? true : false;
         return InkWell(
           onTap: () {
             switch (widget.id) {
@@ -117,7 +115,11 @@ class _LanguageChoiceState extends State<LanguageChoice> {
                 break;
             }
             selectedLanguage = widget.id;
-            checkBoxValue = (state == widget.id) ? true : false;
+            checkBoxValue = (selectedLanguage == widget.id) ? true : false;
+
+            print(selectedLanguage);
+            print(checkBoxValue);
+            print('-----------------');
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),

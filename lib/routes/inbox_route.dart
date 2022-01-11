@@ -3,6 +3,8 @@ import 'package:mail/constants/constants.dart';
 import 'package:mail/widgets/common_widgets.dart';
 import 'package:mail/widgets/languages_widget.dart';
 import 'package:mail/globals/variables.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mail/bloc/languages_bloc.dart';
 
 class InboxRoute extends StatefulWidget {
   InboxRoute({Key? key}) : super(key: key);
@@ -28,10 +30,15 @@ class _InboxRouteState extends State<InboxRoute> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(left: 15.0),
-                            child: IconButton(onPressed: () {setState(() {
-                              isLanguagesTabOpened = true;
-                              setState(() {});
-                            });}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: EdgeInsets.all(0.0),),
+                            child: IconButton(
+                              onPressed: () {setState(() {
+                                isLanguagesTabOpened = true;
+                                setState(() {});
+                                });}, 
+                              icon: Image.asset('assets/icons/usa_icon.png'),
+                              iconSize: 45.0,
+                              padding: EdgeInsets.all(0.0),
+                            ),
                           ),
                         ],
                       ),
@@ -134,3 +141,16 @@ class MailWidget extends StatelessWidget {
   }
 }
 
+String getFlagIconByState(var state) {
+  switch (state) {
+    case languages.en:
+      return 'assets/icons/usa_icon.png';
+    case languages.es:
+      return 'assets/icons/spain_icon.png';
+    case languages.fr:
+      return 'assets/icons/france_icon.png';
+    case languages.de:
+      return 'assets/icons/germany_icon.png';
+  }
+  return'';
+}
