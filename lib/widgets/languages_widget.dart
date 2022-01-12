@@ -95,7 +95,10 @@ class _LanguageChoiceState extends State<LanguageChoice> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LanguagesBloc, languages>(
+
+    final _languagesBloc = BlocProvider.of<LanguagesBloc>(context);
+
+    return BlocBuilder<LanguagesBloc, languages?>(
       builder: (context, state) {
         bool checkBoxValue = (selectedLanguage == widget.id) ? true : false;
         return InkWell(
@@ -116,10 +119,7 @@ class _LanguageChoiceState extends State<LanguageChoice> {
             }
             selectedLanguage = widget.id;
             checkBoxValue = (selectedLanguage == widget.id) ? true : false;
-
-            print(selectedLanguage);
-            print(checkBoxValue);
-            print('-----------------');
+            context.read<LanguagesBloc>().add(ResetState());
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
