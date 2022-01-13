@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
 import 'routes/get_started_route.dart';
 import 'routes/routes_holder.dart';
-import 'routes/home_route.dart';
-import 'routes/inbox_route.dart';
 import 'routes/read_message_route.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
-    supportedLocales: [Locale('en'), Locale('es'), Locale('fr'), Locale('de'), ],
-    fallbackLocale: Locale('en'),
+    supportedLocales: const [Locale('fr'), Locale('es'), Locale('en'), Locale('de')],
+    fallbackLocale: const Locale('de'),
+    startLocale: const Locale('de'),
     path: 'assets/translations',
     child: const MyApp(),
   ));

@@ -8,6 +8,7 @@ import 'inbox_route.dart';
 import 'package:mail/globals/globals.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mail/bloc/languages_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class RoutesHolder extends StatefulWidget {
   const RoutesHolder({Key? key}) : super(key: key);
@@ -23,8 +24,8 @@ class _RoutesHolderState extends State<RoutesHolder> with SingleTickerProviderSt
   void initState() {
     super.initState();
     currentPage = 0;
-    tabs.add(Tabs(Icons.home, "Home"));
-    tabs.add(Tabs(Icons.inbox, "Inbox"));
+    tabs.add(Tabs(Icons.home, 'home'.tr()));
+    tabs.add(Tabs(Icons.inbox, 'inbox'.tr()));
     tabBarController = PageController(initialPage: 0);
   }
 
@@ -42,7 +43,7 @@ class _RoutesHolderState extends State<RoutesHolder> with SingleTickerProviderSt
           ],
       ),
 ),
-      endDrawer: const MyDrawer(),
+      endDrawer: MyDrawer(),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.symmetric(horizontal: bottomBarPadding),
         child: Padding(

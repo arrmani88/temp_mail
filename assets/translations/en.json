@@ -1,5 +1,17 @@
 {
   "your_email_address": "Your email address",
   "copy": "Copy",
-  "change": "Change"
+  "change": "Change",
+  "home": "Home",
+  "inbox": "Inbox",
+  "confirm": "Confirm",
+  "refresh": "Refresh",
+  "menu": "Menu",
+  "privacy_policy": "Privacy policy",
+  "feedback": "Feedback",
+  "share_this_app": "Share this app",
+  "about_us": "About us",
+  "from": "from: ",
+  "date": "date: ",
+  "back": "Back"
 }

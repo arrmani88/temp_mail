@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
 import 'package:mail/widgets/common_widgets.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class ReadMessageRoute extends StatelessWidget {
   const ReadMessageRoute({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class ReadMessageRoute extends StatelessWidget {
                     const SizedBox(height: 8.0),
                     SmallButton(onPressed: () {
                       Navigator.pop(context);
-                    }, title: 'Back', icon: Icons.arrow_left_rounded),
+                    }, title: 'back'.tr(), icon: Icons.arrow_left_rounded),
                     const SizedBox(height: 10.0),
                     Container(
                       padding: const EdgeInsets.all(25.0),
@@ -51,9 +52,9 @@ class ReadMessageRoute extends StatelessWidget {
                                   const SizedBox(width: 15.0),
                                   Expanded(child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: const [
-                                      Text('from: <noreply@winning-article-v2.firebaseapp.com>', style: TextStyle(fontWeight: FontWeight.w400)),
-                                      Text('date: 22-11-2021 23:59:22', style: TextStyle(fontWeight: FontWeight.w400)),
+                                    children: [
+                                      Text('from'.tr() + '<noreply@winning-article-v2.firebaseapp.com>', style: TextStyle(fontWeight: FontWeight.w400)),
+                                      Text('date'.tr() + '22-11-2021 23:59:22', style: TextStyle(fontWeight: FontWeight.w400)),
                                     ],
                                   )),
                                 ],

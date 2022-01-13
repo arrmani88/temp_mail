@@ -5,6 +5,7 @@ import 'package:mail/widgets/languages_widget.dart';
 import 'package:mail/globals/globals.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mail/bloc/languages_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class InboxRoute extends StatefulWidget {
   InboxRoute({Key? key}) : super(key: key);
@@ -52,7 +53,7 @@ class _InboxRouteState extends State<InboxRoute> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            SmallButton(onPressed: () {}, title: 'Refresh', icon: Icons.refresh),
+                            SmallButton(onPressed: () {}, title: 'refresh'.tr(), icon: Icons.refresh),
                           ],
                         ),
                       ),

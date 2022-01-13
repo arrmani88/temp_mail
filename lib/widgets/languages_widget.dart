@@ -3,6 +3,7 @@ import 'package:mail/widgets/common_widgets.dart';
 import 'package:mail/globals/globals.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mail/bloc/languages_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class LanguagesWidget extends StatefulWidget {
   const LanguagesWidget({Key? key}) : super(key: key);
@@ -63,7 +64,7 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
                                       isLanguagesTabOpened = false;
                                       context.read<LanguagesBloc>().add(ConfirmPressed());
                                       animationController.reverse().then((value) => setState(() {}));
-                                    }, title: 'Confirm', icon: Icons.check);
+                                    }, title: 'confirm'.tr(), icon: Icons.check);
                                   },
                                 ),
                               ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class DrawerItem extends StatelessWidget {
   String title;
@@ -10,14 +11,11 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () async {
-        if (!await launch(url)) throw 'Could not launch $url';
-      },
+      onTap: () async {if (!await launch(url)) throw 'Could not launch $url';},
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
         width: 500.0,
         child: Row(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Icon(icon, color: const Color(0xff585D6A)),
             const SizedBox(width: 20.0),
@@ -58,19 +56,19 @@ class MyDrawer extends StatelessWidget {
                         height: 100.0,
                         child: Row(
                           // mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            SizedBox(width: 30.0),
-                            Icon(Icons.menu, color: Color(0xff585D6A), size: 35),
-                            SizedBox(width: 20.0),
-                            Text('Menu', style: TextStyle(fontSize: 35.0, color: Color(0xff585D6A))),
+                          children: [
+                            const SizedBox(width: 30.0),
+                            const Icon(Icons.menu, color: Color(0xff585D6A), size: 35),
+                            const SizedBox(width: 20.0),
+                            Text('menu'.tr(), style: TextStyle(fontSize: 35.0, color: Color(0xff585D6A))),
                           ],
                         ),
                       ),
                       DrawerItem(title: 'F.A.Q.', icon: Icons.help, url: 'https://www.google.com',),
-                      DrawerItem(title: 'Privacy policy', icon: Icons.privacy_tip_outlined, url: 'https://www.google.com',),
-                      DrawerItem(title: 'Feedback', icon: Icons.feedback, url: 'https://www.google.com',),
-                      DrawerItem(title: 'Share this app', icon: Icons.share, url: 'https://www.google.com',),
-                      DrawerItem(title: 'About us', icon: Icons.info, url: 'https://www.google.com',),
+                      DrawerItem(title: 'privacy_policy'.tr(), icon: Icons.privacy_tip_outlined, url: 'https://www.google.com',),
+                      DrawerItem(title: 'feedback'.tr(), icon: Icons.feedback, url: 'https://www.google.com',),
+                      DrawerItem(title: 'share_this_app'.tr(), icon: Icons.share, url: 'https://www.google.com',),
+                      DrawerItem(title: 'about_us'.tr(), icon: Icons.info, url: 'https://www.google.com',),
                     ],
                   ),
                 ),
@@ -79,4 +77,8 @@ class MyDrawer extends StatelessWidget {
       ),
     );
   }
+}
+
+void f() {
+  return
 }

@@ -1,5 +1,17 @@
 {
   "your_email_address": "Ihre Email Adresse",
   "copy": "Kopieren",
-  "change": "Ändern"
+  "change": "Ändern",
+  "home": "Startseite",
+  "inbox": "Posteingang",
+  "confirm": "Bestätigen",
+  "refresh": "Aktualisieren",
+  "menu": "Menü",
+  "privacy_policy": "Datenschutzrichtlinie",
+  "feedback": "Feedback",
+  "share_this_app": "Diese app teilen",
+  "about_us": "Über un",
+  "from": "von: ",
+  "date": "datum: ",
+  "back": "Zurück"
 }

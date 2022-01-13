@@ -6,6 +6,7 @@ import 'package:mail/globals/globals.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mail/bloc/languages_bloc.dart';
 import 'package:mail/functions/functions.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class HomeRoute extends StatefulWidget {
   HomeRoute({Key? key}) : super(key: key);
@@ -53,7 +54,10 @@ class _HomeRouteState extends State<HomeRoute> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    const Center(child: Text('Your email address', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),)),
+                                    Center(child: Text(
+                                      'your_email_address'.tr(),
+                                      style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),)
+                                    ),
                                     const SizedBox(height: 30.0,),
                                     Container(
                                       width: 500.0,
@@ -72,9 +76,9 @@ class _HomeRouteState extends State<HomeRoute> {
                                       ),
                                     ),
                                     const SizedBox(height: 30.0),
-                                    Container(width: 500.0, child: RoundedButton(onPressed: () {}, title: 'Copy', icon: Icons.copy)),
+                                    Container(width: 500.0, child: RoundedButton(onPressed: () {}, title: 'copy'.tr(), icon: Icons.copy)),
                                     const SizedBox(height: 30.0),
-                                    Container(width: 500.0, child: RoundedButton(onPressed: () {}, title: 'Change', icon: Icons.import_export_rounded,))
+                                    Container(width: 500.0, child: RoundedButton(onPressed: () {}, title: 'change'.tr(), icon: Icons.import_export_rounded,))
                                   ],
                                 ),
                               ),
