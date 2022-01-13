@@ -100,7 +100,6 @@ class _LanguageChoiceState extends State<LanguageChoice> {
 
   @override
   Widget build(BuildContext context) {
-    // final _languagesBloc = BlocProvider.of<LanguagesBloc>(context);
     return BlocBuilder<LanguagesBloc, languages?>(
       builder: (context, state) {
         return InkWell(
@@ -129,10 +128,12 @@ class _LanguageChoiceState extends State<LanguageChoice> {
               children: [
                 SizedBox(height: 45.0, child: Image.asset(widget.iconPath)),
                 Text(widget.title, style: const TextStyle(fontSize: 20.0)),
-                Checkbox(
-                  onChanged: null,
-                  value: (selectedLanguage == widget.id) ? true : false,
-                  // fillColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
+                IgnorePointer(
+                  child: Checkbox(
+                    onChanged: (_) {},
+                    value: (selectedLanguage == widget.id) ? true : false,
+                    fillColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
+                  ),
                 )
               ],
             ),
@@ -141,22 +142,4 @@ class _LanguageChoiceState extends State<LanguageChoice> {
       },
     );
   }
-}
-
-void Function()? languagePressed (BuildContext context, LanguageChoice widget) {
-  InkWell(
-    onTap: () { /* DO SOMETHING */},
-    child: Row(
-      children: [
-        SizedBox(height: 45.0, child: Image.asset(widget.iconPath)),
-        Text(widget.title, style: const TextStyle(fontSize: 20.0)),
-        IgnorePointer(
-          child: Checkbox(
-            onChanged: null,
-            value: selectedLanguage == widget.id,
-          ),
-        )
-      ],
-    ),
-  );
 }

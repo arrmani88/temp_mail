@@ -16,6 +16,7 @@ dependencies:
   bloc: ^8.0.1
   flutter_bloc: ^8.0.0
   url_launcher: ^6.0.17
+  easy_localization: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -28,6 +29,10 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/translations/en.json
+    - assets/translations/es.json
+    - assets/translations/fr.json
+    - assets/translations/de.json
     - assets/icons/min_corner_circles.png
     - assets/icons/usa_icon.png
     - assets/icons/france_icon.png

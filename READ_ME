@@ -1,10 +1,7 @@
-TODO:
-Uncheck when other is clicked
-Update corner language icon
 
 ----------------
-languagesBloc
-lwast dial checkbox unclickable
+Translation
+import 'package:easy_localization/easy_localization.dart';
 ----------------
 w100 Thin, the least thick
 w200 Extra-light
