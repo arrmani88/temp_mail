@@ -1,4 +1,4 @@
-import 'package:mail/globals/variables.dart';
+import 'package:mail/globals/globals.dart';
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
@@ -18,6 +18,7 @@ class LanguagesBloc extends Bloc<LanguagesEvent, languages?> {
     on<SpanishPressed>((event, emit) => emit(languages.es));
     on<FrenchPressed>((event, emit) => emit(languages.fr));
     on<GermanPressed>((event, emit) => emit(languages.de));
+
     on<ResetState>((event, emit) => emit(null));
     on<ConfirmPressed>((event, emit) => emit(confirmedLanguage));
   }

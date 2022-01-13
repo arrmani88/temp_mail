@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mail/widgets/common_widgets.dart';
-import 'package:mail/globals/variables.dart';
+import 'package:mail/globals/globals.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mail/bloc/languages_bloc.dart';
 
@@ -56,11 +56,16 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                SmallButton(onPressed: () {
-                                  if (selectedLanguage != null) confirmedLanguage = selectedLanguage;
-                                  isLanguagesTabOpened = false;
-                                  animationController.reverse().then((value) => setState(() {}));
-                                }, title: 'Confirm', icon: Icons.check),
+                                BlocBuilder<LanguagesBloc, languages? >(
+                                  builder: (context, state) {
+                                    return SmallButton(onPressed: () {
+                                      if (selectedLanguage != null) confirmedLanguage = selectedLanguage;
+                                      isLanguagesTabOpened = false;
+                                      context.read<LanguagesBloc>().add(ConfirmPressed());
+                                      animationController.reverse().then((value) => setState(() {}));
+                                    }, title: 'Confirm', icon: Icons.check);
+                                  },
+                                ),
                               ],
                             ),
                             LanguageChoice(id: languages.en, iconPath: 'assets/icons/usa_icon.png', title: 'English',),
@@ -95,12 +100,9 @@ class _LanguageChoiceState extends State<LanguageChoice> {
 
   @override
   Widget build(BuildContext context) {
-
-    final _languagesBloc = BlocProvider.of<LanguagesBloc>(context);
-
+    // final _languagesBloc = BlocProvider.of<LanguagesBloc>(context);
     return BlocBuilder<LanguagesBloc, languages?>(
       builder: (context, state) {
-        bool checkBoxValue = (selectedLanguage == widget.id) ? true : false;
         return InkWell(
           onTap: () {
             switch (widget.id) {
@@ -118,7 +120,6 @@ class _LanguageChoiceState extends State<LanguageChoice> {
                 break;
             }
             selectedLanguage = widget.id;
-            checkBoxValue = (selectedLanguage == widget.id) ? true : false;
             context.read<LanguagesBloc>().add(ResetState());
           },
           child: Padding(
@@ -126,12 +127,12 @@ class _LanguageChoiceState extends State<LanguageChoice> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // IconButton(onPressed: () {}, icon: Image.asset(widget.iconPath), iconSize: 45.0, padding: const EdgeInsets.all(0.0)),
                 SizedBox(height: 45.0, child: Image.asset(widget.iconPath)),
                 Text(widget.title, style: const TextStyle(fontSize: 20.0)),
                 Checkbox(
-                  onChanged: (_) {},
-                  value: checkBoxValue
+                  onChanged: null,
+                  value: (selectedLanguage == widget.id) ? true : false,
+                  // fillColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
                 )
               ],
             ),
@@ -140,4 +141,22 @@ class _LanguageChoiceState extends State<LanguageChoice> {
       },
     );
   }
+}
+
+void Function()? languagePressed (BuildContext context, LanguageChoice widget) {
+  InkWell(
+    onTap: () { /* DO SOMETHING */},
+    child: Row(
+      children: [
+        SizedBox(height: 45.0, child: Image.asset(widget.iconPath)),
+        Text(widget.title, style: const TextStyle(fontSize: 20.0)),
+        IgnorePointer(
+          child: Checkbox(
+            onChanged: null,
+            value: selectedLanguage == widget.id,
+          ),
+        )
+      ],
+    ),
+  );
 }

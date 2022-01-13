@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
 import 'package:mail/widgets/common_widgets.dart';
 import 'package:mail/widgets/languages_widget.dart';
-import 'package:mail/globals/variables.dart';
+import 'package:mail/globals/globals.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mail/bloc/languages_bloc.dart';
+import 'package:mail/functions/functions.dart';
 
 class HomeRoute extends StatefulWidget {
   HomeRoute({Key? key}) : super(key: key);
@@ -38,7 +39,7 @@ class _HomeRouteState extends State<HomeRoute> {
 
                               icon: BlocBuilder<LanguagesBloc, languages?>(
                                 builder: (context, state) {
-                                  return Image.asset(getFlagIconByState(state));
+                                  return Image.asset(getFlagIconByState(confirmedLanguage));
                                 },
                               ),
 
@@ -91,18 +92,4 @@ class _HomeRouteState extends State<HomeRoute> {
       ],
     );
   }
-}
-
-String getFlagIconByState(var language) {
-  switch (language) {
-    case languages.en:
-      return 'assets/icons/usa_icon.png';
-    case languages.es:
-      return 'assets/icons/spain_icon.png';
-    case languages.fr:
-      return 'assets/icons/france_icon.png';
-    case languages.de:
-      return 'assets/icons/germany_icon.png';
-  }
-  return '';
 }

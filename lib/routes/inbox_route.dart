@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mail/constants/constants.dart';
 import 'package:mail/widgets/common_widgets.dart';
 import 'package:mail/widgets/languages_widget.dart';
-import 'package:mail/globals/variables.dart';
+import 'package:mail/globals/globals.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mail/bloc/languages_bloc.dart';
 
@@ -34,10 +34,14 @@ class _InboxRouteState extends State<InboxRoute> {
                               onPressed: () {setState(() {
                                 isLanguagesTabOpened = true;
                                 setState(() {});
-                                });}, 
-                              icon: Image.asset('assets/icons/usa_icon.png'),
+                                });},
+                              icon: BlocBuilder<LanguagesBloc, languages?>(
+                                builder: (context, state) {
+                                  return Image.asset(getFlagIconByState(confirmedLanguage));
+                                },
+                              ),
                               iconSize: 45.0,
-                              padding: EdgeInsets.all(0.0),
+                              padding: const EdgeInsets.all(0.0),
                             ),
                           ),
                         ],
@@ -67,7 +71,7 @@ class _InboxRouteState extends State<InboxRoute> {
             ),
           ),
         ),
-        LanguagesWidget()
+        const LanguagesWidget()
       ],
     );
   }
@@ -109,7 +113,7 @@ class MailWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(width: 20.0),
+              const SizedBox(width: 20.0),
               // content
               Expanded(
                 child: Column(
