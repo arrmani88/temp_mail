@@ -32,10 +32,10 @@ class _InboxRouteState extends State<InboxRoute> {
                           Padding(
                             padding: const EdgeInsets.only(left: 15.0),
                             child: IconButton(
-                              onPressed: () {setState(() {
+                              onPressed: () {
                                 isLanguagesTabOpened = true;
                                 setState(() {});
-                                });},
+                              },
                               icon: BlocBuilder<LanguagesBloc, languages?>(
                                 builder: (context, state) {
                                   return Image.asset(getFlagIconByState(confirmedLanguage));
@@ -72,7 +72,7 @@ class _InboxRouteState extends State<InboxRoute> {
             ),
           ),
         ),
-        const LanguagesWidget()
+        LanguagesWidget()
       ],
     );
   }

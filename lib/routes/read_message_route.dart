@@ -20,8 +20,8 @@ class ReadMessageRoute extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(0.0),),
-                    const SizedBox(height: 8.0),
+                    // IconButton(onPressed: () {}, icon: Image.asset('assets/icons/usa_icon.png'), iconSize: 45.0, padding: const EdgeInsets.all(0.0),),
+                    // const SizedBox(height: 8.0),
                     SmallButton(onPressed: () {
                       Navigator.pop(context);
                     }, title: 'back'.tr(), icon: Icons.arrow_left_rounded),

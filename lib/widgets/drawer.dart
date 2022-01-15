@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mail/widgets/marquee.dart';
 
 class DrawerItem extends StatelessWidget {
   String title;
@@ -11,7 +12,8 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () async {if (!await launch(url)) throw 'Could not launch $url';},
+      onTap: () {},
+      // onTap: () async {if (!await launch(url)) throw 'Could not launch $url';},
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
         width: 500.0,
@@ -19,7 +21,7 @@ class DrawerItem extends StatelessWidget {
           children: [
             Icon(icon, color: const Color(0xff585D6A)),
             const SizedBox(width: 20.0),
-            Text(title, style: const TextStyle(fontSize: 25.0, color: Color(0xff585D6A))),
+            Expanded(child: MarqueeWidget(child: Text(title, style: const TextStyle(fontSize: 25.0, color: Color(0xff585D6A))))),
           ],
         ),
       ),
@@ -79,6 +81,3 @@ class MyDrawer extends StatelessWidget {
   }
 }
 
-void f() {
-  return
-}

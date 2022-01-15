@@ -9,6 +9,7 @@ import 'package:mail/globals/globals.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mail/bloc/languages_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mail/functions/functions.dart';
 
 class RoutesHolder extends StatefulWidget {
   const RoutesHolder({Key? key}) : super(key: key);
@@ -27,6 +28,15 @@ class _RoutesHolderState extends State<RoutesHolder> with SingleTickerProviderSt
     tabs.add(Tabs(Icons.home, 'home'.tr()));
     tabs.add(Tabs(Icons.inbox, 'inbox'.tr()));
     tabBarController = PageController(initialPage: 0);
+  }
+
+  @override
+  void didChangeDependencies() {
+    confirmedLanguage = getEnumFromLanguageCode(context.locale);
+    print('........................');
+    print(confirmedLanguage);
+    print(context.locale);
+    super.didChangeDependencies();
   }
 
   @override

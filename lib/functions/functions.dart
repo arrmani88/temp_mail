@@ -13,3 +13,31 @@ String getFlagIconByState(var language) {
   }
   return '';
 }
+
+String getLanguageCodeFromEnum(var language) {
+  switch (language) {
+    case languages.en:
+      return 'en';
+    case languages.es:
+      return 'es';
+    case languages.fr:
+      return 'fr';
+    case languages.de:
+      return 'de';
+  }
+  return '';
+}
+
+languages getEnumFromLanguageCode(var language) {
+  switch (language.toString()) {
+    case 'en':
+      return languages.en;
+    case 'es':
+      return languages.es;
+    case 'fr':
+      return languages.fr;
+    case 'de':
+      return languages.de;
+  }
+  return languages.en;
+}

@@ -3,6 +3,7 @@ import 'package:mail/widgets/common_widgets.dart';
 import 'package:mail/globals/globals.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mail/bloc/languages_bloc.dart';
+import 'package:mail/functions/functions.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class LanguagesWidget extends StatefulWidget {
@@ -63,6 +64,8 @@ class _LanguagesWidgetState extends State<LanguagesWidget> with SingleTickerProv
                                       if (selectedLanguage != null) confirmedLanguage = selectedLanguage;
                                       isLanguagesTabOpened = false;
                                       context.read<LanguagesBloc>().add(ConfirmPressed());
+                                      // setLocale(const Locale('en'));
+                                      context.locale = Locale(getLanguageCodeFromEnum(confirmedLanguage));
                                       animationController.reverse().then((value) => setState(() {}));
                                     }, title: 'confirm'.tr(), icon: Icons.check);
                                   },
