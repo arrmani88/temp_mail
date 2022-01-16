@@ -54,31 +54,33 @@ class _RoutesHolderState extends State<RoutesHolder> with SingleTickerProviderSt
       ),
 ),
       endDrawer: MyDrawer(),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: bottomBarPadding),
+      bottomNavigationBar: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: CubertoBottomBar(
-            drawer: const CubertoDrawer(style: CubertoDrawerStyle.END_DRAWER),
-            barBorderRadius: BorderRadius.circular(15.0),
-            key: const Key("BottomBar"),
-            inactiveIconColor: Colors.black,
-            tabStyle: CubertoTabStyle.STYLE_FADED_BACKGROUND,
-            selectedTab: currentPage,
-            tabs: tabs.map((value) => TabData(
-              key: Key(value.title),
-              iconData: value.icon,
-              title: value.title,
-              tabColor: const Color(0xff6AE0D9),
-              tabGradient: getGradient())
-            ).toList(),
-            onTabChangedListener: (position, title, color) {
-              setState(() {
-                isLanguagesTabOpened = false;
-                currentPage = position;
-                tabBarController.jumpToPage(position);
-              });
-            },
+          padding: EdgeInsets.symmetric(horizontal: bottomBarPadding),
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: CubertoBottomBar(
+              drawer: const CubertoDrawer(style: CubertoDrawerStyle.END_DRAWER),
+              barBorderRadius: BorderRadius.circular(15.0),
+              key: const Key("BottomBar"),
+              inactiveIconColor: Colors.black,
+              tabStyle: CubertoTabStyle.STYLE_FADED_BACKGROUND,
+              selectedTab: currentPage,
+              tabs: tabs.map((value) => TabData(
+                key: Key(value.title),
+                iconData: value.icon,
+                title: value.title,
+                tabColor: const Color(0xff6AE0D9),
+                tabGradient: getGradient())
+              ).toList(),
+              onTabChangedListener: (position, title, color) {
+                setState(() {
+                  isLanguagesTabOpened = false;
+                  currentPage = position;
+                  tabBarController.jumpToPage(position);
+                });
+              },
+            ),
           ),
         ),
       ),
